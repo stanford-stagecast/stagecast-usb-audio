@@ -1,0 +1,28 @@
+From a022ec8b2a5a333b73de16a092caed29a1e40d98 Mon Sep 17 00:00:00 2001
+From: Keith Winstein <keithw@cs.stanford.edu>
+Date: Sun, 25 Oct 2020 22:05:47 -0700
+Subject: [PATCH] ALSA: usb-audio: Add implicit feedback quirk for Zoom UAC-2
+
+Signed-off-by: Keith Winstein <keithw@cs.stanford.edu>
+---
+ sound/usb/pcm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/sound/usb/pcm.c b/sound/usb/pcm.c
+index 878f1201aad6..d0c355453887 100644
+--- a/sound/usb/pcm.c
++++ b/sound/usb/pcm.c
+@@ -339,6 +339,10 @@ static int set_sync_ep_implicit_fb_quirk(struct snd_usb_substream *subs,
+ 		ep = 0x81;
+ 		ifnum = 2;
+ 		goto add_sync_ep_from_ifnum;
++	case USB_ID(0x1686, 0xf029): /* ZOOM UAC-2 */
++	        ep = 0x82;
++		ifnum = 2;
++		goto add_sync_ep_from_ifnum;
+ 	case USB_ID(0x1397, 0x0001): /* Behringer UFX1604 */
+ 	case USB_ID(0x1397, 0x0002): /* Behringer UFX1204 */
+ 		ep = 0x81;
+-- 
+2.25.1
+

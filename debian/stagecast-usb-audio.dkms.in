@@ -1,0 +1,12 @@
+PACKAGE_NAME="stagecast-usb-audio"
+PACKAGE_VERSION="@VERSION@"
+
+BUILT_MODULE_NAME[0]="snd-usb-audio"
+BUILT_MODULE_LOCATION[0]="sound/usb"
+DEST_MODULE_LOCATION[0]="/updates"
+AUTOINSTALL="yes"
+REMAKE_INITRD=no
+PATCH[0]=0001-ALSA-usb-audio-Add-implicit-feedback-quirk-for-Zoom-.patch
+
+MAKE="MODULE_VERSION= make -j$(nproc) -C ${kernel_source_dir} M=$dkms_tree/$module/$module_version/build/sound/usb snd-usb-audio.ko"
+CLEAN="make -C ${kernel_source_dir} M=$dkms_tree/$module/$module_version/build/sound/usb clean"
