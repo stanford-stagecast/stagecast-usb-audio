@@ -1,6 +1,6 @@
 The ALSA snd_usb_audio kernel module is part of the Linux kernel.
 
-This package was put together by Keith Winstein, from sources
+This package was assembled by Keith Winstein, from sources
 retreived from upstream Linux git and an example from Alberto
 Aguirre. The sources may be found at most Linux ftp sites, including
 ftp://ftp.kernel.org/pub/linux/kernel/, and the prior package is
